@@ -177,14 +177,14 @@
       }
       
       const float weekInSeconds = (7*24*60*60);
-      const float timeBucket = (floor(unixTimestamp/weekInSeconds)*weekInSeconds);
+      const float timeBucket = unixTimestamp;
       
       NSDate* timeBucketDate = [NSDate dateWithTimeIntervalSince1970:timeBucket];
 
       NSString* timeBucketString = [timeBucketDate descriptionWithCalendarFormat:@"%Y-%m-%d" timeZone:nil locale:nil];
 
-      const float latitude_index = (floor(latitude*precision)/precision);  
-      const float longitude_index = (floor(longitude*precision)/precision);
+      const float latitude_index = latitude;
+      const float longitude_index = longitude;
       NSString* allKey = [NSString stringWithFormat:@"%f,%f,All Time", latitude_index, longitude_index];
       NSString* timeKey = [NSString stringWithFormat:@"%f,%f,%@", latitude_index, longitude_index, timeBucketString];
 
